@@ -38,9 +38,11 @@ async function initial() {
 
             let h3 = document.createElement('h2');
             h3.setAttribute('class', 'itemHeader');
+
             let p = document.createElement('p');
             p.setAttribute('class', 'itemTxt');
 
+            // fetching heading
             if (i === "name") {
                 h3.textContent = 'CENTER';
                 p.textContent = element[i];
@@ -51,11 +53,9 @@ async function initial() {
                 h3.textContent = "STATE";
                 p.textContent = element[i];
             }
+
             item.appendChild(h3);
             item.appendChild(p);
-
-
-
 
             card.appendChild(item);
         });
@@ -86,6 +86,6 @@ initial();
 //     })
 // }
 
-// cityBtn.addEventListener('click', ()=>{
-
+// cityBtn.addEventListener('click', (data) => {
+//     if ()
 // })
