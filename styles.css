@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #8ab9f694;
+}
 .theme{
     background-color: #004AAD;
     color: #fff;
@@ -98,12 +101,13 @@
 }
 .items{
     width: 33.33%;
+    cursor: pointer;
 
 }
-.items:first-child{
+/* .items:first-child{
     display: none!important;
-}
-.items:nth-child(3){
+} */
+.items:nth-child(2){
     text-align: center;
 }
 .items:last-child{
