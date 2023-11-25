@@ -58,10 +58,11 @@ function cardBinding(input) {
                     <h3 class="itemHeader">STATE</h3>
                     <P class="itemTxt">${data.State}</P>
                 </div>
-        </div>`
+        </div>
+        `
     });
-
-    outputArea.innerHTML += list;
+    console.log(list);
+    outputArea.innerHTML += `${list}`;
 }
 
 //========================➡️➡️➡️➡️Searching by city, state and centre name ⬅️⬅️⬅️⬅️========================
