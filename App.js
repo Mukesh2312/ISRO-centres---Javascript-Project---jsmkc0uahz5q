@@ -4,20 +4,15 @@ const centerBtn = document.getElementById('centerBtn')
 const headName = document.getElementById('headName');
 const outputArea = document.getElementById('outputArea')
 const body = document.querySelector('body');
-const btn = document.getElementsByClassName('btn');
+const btn = document.querySelectorAll('.btn');
 let txtColor = "#004AAD"
 
-// headName.style.color = txtColor;
-// function colorFirstLetter() {
-//     let letters = headName.innerText.split(" ");
-//     letters.forEach(element => {
-//         let word = element.charAt(0);
-
-//     });
-
-// }
-
-// colorFirstLetter();
+btn.forEach(element => {
+    element.addEventListener('click', () => {
+        document.querySelector('.active')?.classList.remove('active');
+        element.classList.add('active');
+    })
+});
 
 //========================➡️➡️➡️➡️Fetching data and returning⬅️⬅️⬅️⬅️========================
 
@@ -41,7 +36,7 @@ bindingName();
 //========================➡️➡️➡️➡️Creating card Structure for data⬅️⬅️⬅️⬅️========================
 
 function cardBinding(input) {
-    console.log(input);
+    // console.log(input);
 
     let list = input.map(function (data) {
         return `
@@ -61,7 +56,7 @@ function cardBinding(input) {
         </div>
         `
     });
-    console.log(list);
+    // console.log(list);
     outputArea.innerHTML += `${list}`;
 }
 
@@ -69,7 +64,7 @@ function cardBinding(input) {
 
 
 async function searchHandler(type) {
-    console.log(type);
+    // console.log(type);
     let inputSearch = document.getElementById('input').value.toLowerCase();
 
     outputArea.innerHTML = '';
