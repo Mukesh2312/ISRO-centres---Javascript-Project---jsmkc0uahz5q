@@ -71,30 +71,34 @@ function cardBinding(input) {
 
 
 async function searchHandler(type) {
+    // console.log(type);
     let inputSearch = document.getElementById('input').value.toLowerCase();
+
     outputArea.innerHTML = '';
-    debugger
-    if (type === ('city' || 'center' || 'state')) {
-        // Handle search based on the currently active button
-        const data = await allCentres();
-        const filterData = data.filter(function (data) {
-            if (type === 'city') {
-                return data.Place.toLowerCase().includes(inputSearch);
-            } else if (type === 'center') {
-                return data.name.toLowerCase().includes(inputSearch);
-            } else if (type === 'state') {
-                return data.State.toLowerCase().includes(inputSearch);
-            }
-        });
-        cardBinding(filterData);
-    } else {
-        // Handle generic search (no specific button selected)
-        const data = await allCentres();
-        const filterData = data.filter(data =>
-            data.name.toLowerCase().includes(inputSearch) ||
-            data.Place.toLowerCase().includes(inputSearch) ||
-            data.State.toLowerCase().includes(inputSearch)
-        );
-        cardBinding(filterData);
-    }
+    let data = await allCentres();
+
+    let filterData = data.filter(function (data) {
+        if (type == 'city') {
+            return data.Place.toLowerCase().includes(inputSearch);
+        } else if (type == 'center') {
+            return data.name.toLowerCase().includes(inputSearch);
+        }
+        else if (type == 'state') {
+            return data.State.toLowerCase().includes(inputSearch);
+        }
+    })
+
+    cardBinding(filterData);
+}
+
+const onSearchButtonHandler = async () => {
+    let inputSearch = document.getElementById('input').value.toLowerCase();
+
+    const data = await allCentres();
+    const filterData = data.filter(data =>
+        data.name.toLowerCase().includes(inputSearch) ||
+        data.Place.toLowerCase().includes(inputSearch) ||
+        data.State.toLowerCase().includes(inputSearch)
+    );
+    cardBinding(filterData);
 }
