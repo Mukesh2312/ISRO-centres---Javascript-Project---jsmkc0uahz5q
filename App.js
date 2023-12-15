@@ -7,6 +7,11 @@ const body = document.querySelector('body');
 const btn = document.querySelectorAll('.btn');
 let txtColor = "#004AAD"
 
+
+
+//========================➡️➡️➡️➡️button Hover on click⬅️⬅️⬅️⬅️========================
+
+
 btn.forEach(element => {
     element.addEventListener('click', () => {
         document.querySelector('.active')?.classList.remove('active');
@@ -20,6 +25,7 @@ async function allCentres() {
     let response = await fetch('https://isro.vercel.app/api/centres');
     let data = await response.json();
     let centres = data.centres;
+    // console.log(centres);
     return centres;
 }
 
@@ -28,6 +34,7 @@ allCentres();
 async function bindingName() {
     let input = await allCentres();
     cardBinding(input);
+    // console.log(input);
 
 }
 bindingName();
@@ -57,28 +64,24 @@ function cardBinding(input) {
         `
     });
     // console.log(list);
-    outputArea.innerHTML += `${list}`;
+    outputArea.innerHTML = `${list}`;
 }
 
 //========================➡️➡️➡️➡️Searching by city, state and centre name ⬅️⬅️⬅️⬅️========================
 
 
 async function searchHandler(type) {
-    // console.log(type);
     let inputSearch = document.getElementById('input').value.toLowerCase();
-
     outputArea.innerHTML = '';
-    let data = await allCentres();
-    let filterData = data.filter(function (data) {
-        if (type == 'city') {
-            return data.Place.toLowerCase().includes(inputSearch);
-        } else if (type == 'center') {
-            return data.name.toLowerCase.includes(inputSearch);
-        }
-        else if (type == 'state') {
-            return data.State.toLowerCase().includes(inputSearch);
-        }
-    })
+    // debugger
 
+    // Handle generic search (no specific button selected)
+    const data = await allCentres();
+    const filterData = data.filter(data =>
+        data.name.toLowerCase().includes(inputSearch) ||
+        data.Place.toLowerCase().includes(inputSearch) ||
+        data.State.toLowerCase().includes(inputSearch)
+    );
     cardBinding(filterData);
+
 }
