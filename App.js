@@ -34,7 +34,7 @@ allCentres();
 async function bindingName() {
     let input = await allCentres();
     cardBinding(input);
-    // console.log(input);
+    console.log(input);
 
 }
 bindingName();
@@ -89,7 +89,11 @@ async function searchHandler(type) {
     })
 
     cardBinding(filterData);
+    console.log(filterData)
 }
+
+
+//========================➡️➡️➡️➡️Searching data onclick on the search button  ⬅️⬅️⬅️⬅️========================
 
 const onSearchButtonHandler = async () => {
     let inputSearch = document.getElementById('input').value.toLowerCase();
