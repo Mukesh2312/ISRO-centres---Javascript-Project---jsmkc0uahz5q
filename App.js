@@ -62,7 +62,7 @@ function cardBinding(input) {
                 </div>
         </div>
         `
-    });
+    }).join('');
     // console.log(list);
     outputArea.innerHTML = `${list}`;
 }
