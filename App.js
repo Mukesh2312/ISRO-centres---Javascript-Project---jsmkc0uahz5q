@@ -12,7 +12,7 @@ let txtColor = "#004AAD"
 //========================➡️➡️➡️➡️button Hover on click⬅️⬅️⬅️⬅️========================
 
 
-btn.forEach(element => {
+btn.forEach((element) => {
     element.addEventListener('click', () => {
         document.querySelector('.active')?.classList.remove('active');
         element.classList.add('active');
